@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<% if user_signed_in? %>
+  <p>Welcome - <%= link_to 'Log out', destroy_user_session_path, method: :delete %></p>
+<% else %>
+  <p>Welcome - <%= link_to 'Log in', new_user_session_path %></p>
+<% end %>
+
 <%= yield %>
 
 <% if notice %>
